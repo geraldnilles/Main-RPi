@@ -21,11 +21,35 @@ this command::
 Build 
 =====
 
-THe following changes should be made to the defautl conf file
+Jump into the poky directory and source the build environment::
 
+        cd poky
+        . oe-init-build-env
 
-* GPoky Distro
-* Machine = Rpi4
-* Wifi Password = ...
+Add the other layers to the poky config::
 
+        bitbake-layers add-layer ../../meta-raspberrypi
+        bitbake-layers add-layer ../../meta-openembedded/meta-oe
+        bitbake-layers add-layer ../../meta-openembedded/meta-python
+        bitbake-layers add-layer ../../meta-geraldpi
+
+Modify the build/conf/local.conf file to make the following changes::
+
+        
+        MACHINE ??= "raspberrypi4-64"
+
+        # Use the gpoky distro to pull in a lot of common conf chnages
+        DISTRO ?= "gpoky"
+
+        DEFAULT_TIMEZONE = "America/Los_Angeles"
+
+        WIFI_SSID = "My Wifi Network"
+	WIFI_PASSWORD = "My password"
+
+        BB_NUMBER_THREADS = "4"
+	PARALLEL_MAKE = "-j 8"
+
+You can now build any of the images::
+
+        bitbake geraldpi-documents
 

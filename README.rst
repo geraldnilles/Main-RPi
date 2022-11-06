@@ -6,20 +6,21 @@ This is a collection of git submodules that shoudl make it easier to clone and
 build this project from scratch
 
 
-Clone
-=====
-
-The following will download all of the git submodules::
-
-        git submo... 
-
-If you ever want to update all of the submodules in 1 swoop. you can also run
-this command::
-
-        git ...
 
 Build 
 =====
+
+Clone this repo onto a ubuntu instance.
+
+Edit the config.sh script to change the wifi credentials (if desired)
+
+Run the ./setup.sh script to install build dependencies.  It is probably best to reboot the system after running this.
+
+Next, you can run the runall.sh script to do the rest
+
+
+Backup
+======
 
 Jump into the poky directory and source the build environment::
 

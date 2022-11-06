@@ -3,8 +3,7 @@
 sudo apt update
 sudo apt upgrade
 
-sudo apt install git build-essential chrpath diffstat liblz4-tool wpasupplicant awscli
-
+sudo apt install git build-essential chrpath diffstat liblz4-tool wpasupplicant awscli tmux
 
 
 

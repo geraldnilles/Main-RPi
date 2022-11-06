@@ -7,3 +7,4 @@ cd poky
 . oe-init-build-env
 
 bitbake geraldpi-documents
+bitbake geraldpi-webapps

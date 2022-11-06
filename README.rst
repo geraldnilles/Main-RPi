@@ -12,7 +12,21 @@ Create an EC2 instance.
 
 I recommend using a SPOT instance since it is much cheaper.  
 
-Configure the EBS to be 100GB.  Also the EBS to not terminate when the instance stops.  This will allow the build to resume if there is an error
+Configure the EBS to be 100GB.  Also the EBS to not terminate when the instance
+stops.  This will allow the build to resume if there is an error
+
+Set the IAM role to give Full S3 access so you can upload the build to a bucket
+when complete.
+
+
+After the server is run, opena sehll on your local machine and run:
+
+        eval "$(ssh-agent -s)"
+        ssh-add ~/aws/MyAWSKey.pem
+
+You can now ssh into the Ec2 with the public IP address, clone the repo, and
+get going
+
 
 
 Build 
@@ -24,7 +38,8 @@ Edit the config.sh script to change the wifi credentials (if desired)
 
 Run the ./setup.sh script to install build dependencies.  It is probably best to reboot the system after running this.
 
-Next, you can run the runall.sh script to do the rest
+Next, you can run the runall.sh script to do the rest.  It is probalby best to
+run this in a tmux session
 
 
 Backup

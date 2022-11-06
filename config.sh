@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")"
 
-git submodule update --init --recursive.
+git submodule update --init --recursive
 
 # Delete the conf and genrate a new default one
 cd poky/build/conf

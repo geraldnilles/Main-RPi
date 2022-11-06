@@ -12,6 +12,12 @@ cd poky
 
 . oe-init-build-env
 
+# Add the meta layers
+bitbake-layers add-layer ../../meta-raspberrypi
+bitbake-layers add-layer ../../meta-openembedded/meta-oe
+bitbake-layers add-layer ../../meta-openembedded/meta-python
+bitbake-layers add-layer ../../meta-geraldpi
+
 cd conf
 
 # Set the Machine to RaspberryPi4

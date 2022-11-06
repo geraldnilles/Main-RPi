@@ -5,6 +5,14 @@
 This is a collection of git submodules that shoudl make it easier to clone and
 build this project from scratch
 
+AWS Setup
+=========
+
+Create an EC2 instance.  
+
+I recommend using a SPOT instance since it is much cheaper.  
+
+Configure the EBS to be 100GB.  Also the EBS to not terminate when the instance stops.  This will allow the build to resume if there is an error
 
 
 Build 

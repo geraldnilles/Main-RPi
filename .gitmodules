@@ -10,3 +10,7 @@
 	path = meta-openembedded
 	url = https://github.com/openembedded/meta-openembedded
 	branch = kirkstone
+[submodule "meta-geraldpi"]
+	path = meta-geraldpi
+	url = https://github.com/geraldnilles/meta-geraldpi
+	branch = kirkstone

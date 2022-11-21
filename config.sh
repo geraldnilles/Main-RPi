@@ -22,6 +22,9 @@ cd conf
 
 # Set the Machine to RaspberryPi4
 sed -i '/^MACHINE/ s/=.*/= "raspberrypi4-64" /' local.conf
+#sed -i '/^MACHINE/ s/=.*/= "raspberrypi0-wifi" /' local.conf
+#sed -i '/^MACHINE/ s/=.*/= "raspberrypi3-64" /' local.conf
+
 # Set the distro
 sed -i '/^DISTRO/ s/=.*/= "gpoky" /' local.conf
 

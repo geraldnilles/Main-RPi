@@ -17,6 +17,7 @@ bitbake-layers add-layer ../../meta-raspberrypi
 bitbake-layers add-layer ../../meta-openembedded/meta-oe
 bitbake-layers add-layer ../../meta-openembedded/meta-python
 bitbake-layers add-layer ../../meta-geraldpi
+bitbake-layers add-layer ../../meta-rust
 
 cd conf
 
@@ -36,4 +37,9 @@ echo "WIFI_PASSWORD = \"My password\"" >> local.conf
 CPU_COUNT=$( grep -c ^processor /proc/cpuinfo )
 echo "BB_NUMBER_THREADS = \"$(( $CPU_COUNT/2 ))\"" >> local.conf 
 echo "PARALLEL_MAKE = \"-j $(( $CPU_COUNT/2))\"" >> local.conf 
+
+# Add Kirkstone into the meta-rust compat variable
+# Meta-Rust is needed to properly build for ArmV6 Raspberry pis (Pi Zero and Zero W)
+cd "$(dirname "$0")"
+sed -i  '/^LAYERSERIES_COMPAT_rust-layer/ s/=.*/= "dunfell gatesgarth hardknott honister kirkstone" /' meta-rust/conf/layer.conf
 

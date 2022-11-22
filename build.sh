@@ -9,3 +9,4 @@ cd poky
 bitbake geraldpi-documents
 bitbake geraldpi-webapps
 bitbake geraldpi-scam
+bitbake geraldpi-cec

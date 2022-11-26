@@ -42,6 +42,15 @@ Next, you can run the runall.sh script to do the rest.  It is probalby best to
 run this in a tmux session
 
 
+TODOs
+=====
+
+- Setup a AWS-CLI scripts for provisioning Ec2
+- Limit the Journalctl size to 50MB
+- Change the deploy script for armv8 vs armv6
+
+
+
 Backup
 ======
 
@@ -76,4 +85,5 @@ Modify the build/conf/local.conf file to make the following changes::
 You can now build any of the images::
 
         bitbake geraldpi-documents
+
 

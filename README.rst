@@ -46,9 +46,7 @@ TODOs
 =====
 
 - Setup a AWS-CLI scripts for provisioning Ec2
-- Limit the Journalctl size to 50MB
 - Change the deploy script for armv8 vs armv6
-
 
 
 Backup

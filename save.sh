@@ -11,5 +11,5 @@ git rev-parse HEAD > poky/build/tmp/deploy/images/githash
 
 tar cJf geraldpi-artifacts.tar.xz poky/build/tmp/deploy/images 
 
-aws s3 cp geraldpi-artifacts.tar.xz s3://gnyoctobuilds
+aws s3 cp geraldpi-artifacts.tar.xz s3://gnbuildartifacts
 

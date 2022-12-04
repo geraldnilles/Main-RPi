@@ -1,0 +1,5 @@
+# This is the config file i am using in the ~/.aws file
+
+[default]
+region=us-east-2
+output=json

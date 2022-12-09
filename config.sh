@@ -1,1 +1,0 @@
-config.armv8.sh

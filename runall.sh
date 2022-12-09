@@ -2,8 +2,6 @@
 
 cd "$(dirname "$0")"
 
-./config.sh
-
 ./build.sh
 
 ./save.sh

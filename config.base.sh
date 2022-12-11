@@ -23,8 +23,8 @@ cd conf
 sed -i '/^DISTRO/ s/=.*/= "gpoky" /' local.conf
 
 echo 'DEFAULT_TIMEZONE = "America/Los_Angeles"' >> local.conf
-echo "WIFI_SSID = \"$1\"" >> local.conf
-echo "WIFI_PASSWORD = \"$2\"" >> local.conf 
+echo "WIFI_SSID = \"$WIFI_SSID\"" >> local.conf
+echo "WIFI_PASSWORD = \"$WIFI_PASS\"" >> local.conf 
 
 # Set core count based on number of CPU cores
 CPU_COUNT=$( grep -c ^processor /proc/cpuinfo )

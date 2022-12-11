@@ -10,27 +10,7 @@ then
 
 fi
 
-# BUild all of the RPI4 Images
-cd "$(dirname "$0")"
-WIFI_SSID="$1" WIFI_PASS="$2" ./config.rpi4.sh
-cd poky
-. oe-init-build-env
-
-bitbake geraldpi-documents
-bitbake geraldpi-webapps
-bitbake geraldpi-scam
-
-# Build all of the RPI3 Images
-cd "$(dirname "$0")"
-WIFI_SSID="$1" WIFI_PASS="$2" ./config.rpi3.sh
-cd poky
-. oe-init-build-env
-bitbake geraldpi-thermostat
-
-# Build all of hte RPi0 Images
-cd "$(dirname "$0")"
-WIFI_SSID="$1" WIFI_PASS="$2" ./config.rpi0.sh
-cd poky
-. oe-init-build-env
-bitbake geraldpi-cec
+WIFI_SSID="$1" WIFI_PASS="$2" ./build.rpi4.sh
+WIFI_SSID="$1" WIFI_PASS="$2" ./build.rpi3.sh
+WIFI_SSID="$1" WIFI_PASS="$2" ./build.rpi0.sh
 

@@ -8,80 +8,47 @@ build this project from scratch
 AWS Setup
 =========
 
-Create an EC2 instance.  
+The scripts in the ./aws are used to build this project using an Amazon Web
+Services EC2 isntance.
 
 I recommend using a SPOT instance since it is much cheaper.  
 
-Configure the EBS to be 100GB.  Also the EBS to not terminate when the instance
+Configure the EBS to be 150GB.  Also the EBS to not terminate when the instance
 stops.  This will allow the build to resume if there is an error
 
 Set the IAM role to give Full S3 access so you can upload the build to a bucket
 when complete.
 
+The following sequence is what i use:
 
-After the server is run, opena sehll on your local machine and run:
+Run the ./start.sh script to spawn a new instance.  Wait 10 or 15 seconds for it to complete.
 
-        eval "$(ssh-agent -s)"
-        ssh-add ~/aws/MyAWSKey.pem
+Run the `./get_ip.sh` script to get the IP address of the new instance.
 
-You can now ssh into the Ec2 with the public IP address, clone the repo, and
-get going
+Run the `./clone.sh [IP Addr]` to ssh to the instance and clone the current repository
 
+Run the `./connect.sh [IP Addr]` to start an interactive ssh shell
+
+Once you are connected, cd into the Repo folder and run the `./setup.sh` script
+to install all of the requried packages.
 
 
 Build 
 =====
 
-Clone this repo onto a ubuntu instance.
+Once the Instance is setup, start a tmux session::
 
-Edit the config.sh script to change the wifi credentials (if desired)
+        tmux new
 
-Run the ./setup.sh script to install build dependencies.  It is probably best to reboot the system after running this.
+To build everything, run the following command and provide the wifi credentials::
 
-Next, you can run the runall.sh script to do the rest.  It is probalby best to
-run this in a tmux session
+        runall.sh [WifiSSID] [WifiPassword]
 
+This will build every image for each machine time, compress everything into a
+tar.xz file, upload it to an amazon S3 bucket, and shutdown the EC2 instance
 
-TODOs
-=====
+If you only want to build for one of the machine types, edit the `build.sh` script and delete the ./build.rpi*.sh scripts you want to skip.
 
-- Setup a AWS-CLI scripts for provisioning Ec2
-- Change the deploy script for armv8 vs armv6
-
-
-Backup
-======
-
-Jump into the poky directory and source the build environment::
-
-        cd poky
-        . oe-init-build-env
-
-Add the other layers to the poky config::
-
-        bitbake-layers add-layer ../../meta-raspberrypi
-        bitbake-layers add-layer ../../meta-openembedded/meta-oe
-        bitbake-layers add-layer ../../meta-openembedded/meta-python
-        bitbake-layers add-layer ../../meta-geraldpi
-
-Modify the build/conf/local.conf file to make the following changes::
-
-        
-        MACHINE ??= "raspberrypi4-64"
-
-        # Use the gpoky distro to pull in a lot of common conf chnages
-        DISTRO ?= "gpoky"
-
-        DEFAULT_TIMEZONE = "America/Los_Angeles"
-
-        WIFI_SSID = "My Wifi Network"
-	WIFI_PASSWORD = "My password"
-
-        BB_NUMBER_THREADS = "4"
-	PARALLEL_MAKE = "-j 8"
-
-You can now build any of the images::
-
-        bitbake geraldpi-documents
+If you only want to build a subset of the iamges, edit the specific `build.rpi*.sh` file and delete the bitbake line you want to skip
 
 

@@ -10,6 +10,6 @@ cd poky
 cd conf
 
 # Set the Machine to RaspberryPi4
-sed -i '/^MACHINE/ s/=.*/= "raspberrypi0-2w-64.conf" /' local.conf
+sed -i '/^MACHINE/ s/=.*/= "raspberrypi0-2w-64" /' local.conf
 
 

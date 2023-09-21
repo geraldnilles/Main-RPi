@@ -14,7 +14,3 @@
 	path = meta-geraldpi
 	url = https://github.com/geraldnilles/meta-geraldpi
 	branch = kirkstone
-[submodule "meta-rust"]
-	path = meta-rust
-	url = https://github.com/meta-rust/meta-rust
-	branch = master

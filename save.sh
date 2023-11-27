@@ -18,4 +18,5 @@ find poky/build/tmp/log -name console-latest.log | xargs -n 1 cat | grep "Logfil
 
 tar cJf geraldpi-artifacts.tar.xz poky/build/tmp/deploy/images 
 
+gsutil cp geraldpi-artifacts.tar.xz gs://gpi_images/
 

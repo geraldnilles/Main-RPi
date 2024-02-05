@@ -1,12 +1,19 @@
 steps:
-  # Step 0: Adjust ownership of the /workspace directory
-  - name: 'gcr.io/cloud-builders/docker'
-    id: 'fix-workspace-permissions'
+  # Step to add the new user 'yoctouser'
+  - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
     args:
       - '-c'
       - |
-        chown -R yoctouser:yoctouser /workspace
+        useradd -m yoctouser || true  # '|| true' to ignore if the user already exists
+        # Additional commands to set up 'yoctouser', if necessary
+
+  # Step to change ownership of the /workspace directory
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - chown -R yoctouser:yoctouser /workspace
 
   - name: 'gcr.io/sdserver-384505/yocto-builder'
     args: ['./runall.sh', 'MySSID','mypassword']

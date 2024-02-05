@@ -13,7 +13,7 @@ steps:
         echo "Changed ownership of /workspace to yoctouser."
 
   - name: 'gcr.io/sdserver-384505/yocto-builder'
-    args: ['./runall.sh', 'MySSID','mypassword']
+    args: ['./runall.sh', '$_MY_SSID','$_MY_PASSWORD']
 
   - name: 'gcr.io/cloud-builders/gsutil'
     id: 'copy-artifacts-to-gcs'

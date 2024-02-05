@@ -15,6 +15,7 @@ steps:
   - name: 'gcr.io/sdserver-384505/yocto-builder'
     args: ['./runall.sh', '$_MY_SSID','$_MY_PASSWORD']
 
+  # Save outputs images
   - name: 'gcr.io/cloud-builders/gsutil'
     id: 'copy-artifacts-to-gcs'
     args:
@@ -22,9 +23,17 @@ steps:
       - 'geraldpi-artifacts.tar.xz' 
       - 'gs://gpi_images/'
 
+  # Cache Build Artifacts to speed up future builds
+  - name: 'gcr.io/cloud-builders/gsutil'
+    id: 'copy-cache-to-gcs'
+    args:
+      - 'cp' 
+      - 'geraldpi-cache.tar.gz' 
+      - 'gs://gpi_images/'
+
 options:
   # Specify a machine type depending on your build's resource requirements
   # This is optional; if not specified, Cloud Build uses a default machine type
   machineType: 'E2_HIGHCPU_8'
 
-timeout: 10000s
+timeout: 15000s

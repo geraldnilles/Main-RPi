@@ -17,3 +17,12 @@ High Priority
    setup a timer that writes a backup every month.  I will use growisofs for
    this
 
+Issues
+------
+
+The only appliance (so far) that needs the `vc4-kms-v3d` driver is the CEC
+controller.  For whatever reason, the initram image kernel packs when this
+dtoverlay is enabled.  As a workaround, the CEC device is using a regular boot
+image (with NV memory enabled). Eventually, i should figure out why this panic
+is occuring
+

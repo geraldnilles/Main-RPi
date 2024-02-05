@@ -6,7 +6,7 @@ steps:
     args:
       - '-c'
       - |
-        sudo chown -R yoctouser:yoctouser /workspace
+        chown -R yoctouser:yoctouser /workspace
 
   - name: 'gcr.io/sdserver-384505/yocto-builder'
     args: ['./runall.sh', 'MySSID','mypassword']

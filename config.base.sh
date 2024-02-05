@@ -5,17 +5,15 @@ cd "$(dirname "$0")"
 git submodule update --init --recursive
 
 # Delete the conf and genrate a new default one
-rm poky/build/conf/local.conf
+rm build/conf/local.conf
 
-cd poky
-
-. oe-init-build-env
+. poky/oe-init-build-env
 
 # Add the meta layers
-bitbake-layers add-layer ../../meta-raspberrypi
-bitbake-layers add-layer ../../meta-openembedded/meta-oe
-bitbake-layers add-layer ../../meta-openembedded/meta-python
-bitbake-layers add-layer ../../meta-geraldpi
+bitbake-layers add-layer ../meta-raspberrypi
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-geraldpi
 
 cd conf
 

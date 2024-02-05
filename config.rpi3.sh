@@ -4,8 +4,7 @@
 cd "$(dirname "$0")"
 WIFI_SSID="$WIFI_SSID" WIFI_PASS="$WIFI_PASS" ./config.base.sh
 
-cd poky
-. oe-init-build-env
+. poky/oe-init-build-env
 
 
 cd conf

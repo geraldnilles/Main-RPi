@@ -1,4 +1,13 @@
 steps:
-- name: 'gcr.io/sdserver-384505/yocto-builder'
-  args: ['./runall.sh', 'MySSID','mypassword']
+  # Step 0: Adjust ownership of the /workspace directory
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'fix-workspace-permissions'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        sudo chown -R yoctouser:yoctouser /workspace
+
+  - name: 'gcr.io/sdserver-384505/yocto-builder'
+    args: ['./runall.sh', 'MySSID','mypassword']
 

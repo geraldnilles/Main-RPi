@@ -9,13 +9,6 @@ steps:
         echo "User yoctouser created successfully."
         # List the user to confirm creation
         id yoctouser
-
-  # Step to change ownership of the /workspace directory
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
         chown -R yoctouser:yoctouser /workspace
         echo "Changed ownership of /workspace to yoctouser."
 

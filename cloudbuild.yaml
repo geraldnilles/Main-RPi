@@ -1,4 +1,4 @@
 steps:
 - name: 'gcr.io/sdserver-384505/yocto-builder'
-  args: ['echo', 'Hello World from Google Cloud Build!']
+  args: ['pwd']
 

@@ -15,8 +15,4 @@ fi
 
 ./save.sh
 
-echo "Build Finished.  Waiting 5m before shutting down instance"
-sleep 300
-
-sudo shutdown -h 0
 

@@ -15,3 +15,14 @@ steps:
   - name: 'gcr.io/sdserver-384505/yocto-builder'
     args: ['./runall.sh', 'MySSID','mypassword']
 
+  - name: 'gcr.io/cloud-builders/gsutil'
+    id: 'copy-artifacts-to-gcs'
+    args:
+      - 'cp' 
+      - 'geraldpi-artifacts.tar.xz' 
+      - 'gs://gpi_images/'
+
+options:
+  # Specify a machine type depending on your build's resource requirements
+  # This is optional; if not specified, Cloud Build uses a default machine type
+  machineType: 'N1_HIGHCPU_32'

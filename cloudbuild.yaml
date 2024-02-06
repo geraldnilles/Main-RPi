@@ -1,14 +1,13 @@
 steps:
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ['cp', 'gs://YOUR_BUCKET_NAME/yocto-cache.tar.gz', '.']
     id: 'download-cache'
-    entrypoint: 'sh'
+    entrypoint: 'bash'
     args:
     - '-c'
     - |
       if gsutil -q stat gs://gpi_images/geraldpi-cache.tar.gz; then
         gsutil cp gs://gpi_images/geraldpi-cache.tar.gz .
-        tar xzf geraldpi-cache.tar.gz
+        tar xvf geraldpi-cache.tar.gz
         rm geraldpi-cache.tar.gz
       else
         echo "No cache found, proceeding without cache"

@@ -5,8 +5,8 @@ steps:
     args:
     - '-c'
     - |
-      if gsutil -q stat gs://gpi_images/geraldpi-cache.tar.gz; then
-        gsutil cp gs://gpi_images/geraldpi-cache.tar.gz .
+      if gsutil -q stat gs://gpi_images/geraldpi-cache.tar.xz; then
+        gsutil cp gs://gpi_images/geraldpi-cache.tar.xz .
       else
         echo "No cache found, proceeding without cache"
       fi
@@ -39,7 +39,7 @@ steps:
     id: 'copy-cache-to-gcs'
     args:
       - 'cp' 
-      - 'geraldpi-cache.tar.gz' 
+      - 'geraldpi-cache.tar.xz' 
       - 'gs://gpi_images/'
 
 options:

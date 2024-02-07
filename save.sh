@@ -18,8 +18,8 @@ find build/tmp/log -name console-latest.log | xargs -n 1 cat | grep "Logfile of 
 
 tar cJf geraldpi-artifacts.tar.xz build/tmp/deploy/images 
 
-rm yocto-cache.tar.gz
+rm geraldpi-cache.tar*
 # Zip all of the build cache for later use
 cd build
-tar czf ../yocto-cache.tar.gz sstate-cache downloads
+tar cJf ../geraldpi-cache.tar.xz sstate-cache downloads
 

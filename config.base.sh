@@ -9,6 +9,9 @@ rm build/conf/local.conf
 
 . poky/oe-init-build-env
 
+echo "Extracting Cache"
+tar xf ../geraldpi-cache.tar.zst 
+
 # Add the meta layers
 bitbake-layers add-layer ../meta-raspberrypi
 bitbake-layers add-layer ../meta-openembedded/meta-oe

@@ -5,8 +5,8 @@ steps:
     args:
     - '-c'
     - |
-      if gsutil -q stat gs://gpi_images/geraldpi-cache.tar.xz; then
-        gsutil cp gs://gpi_images/geraldpi-cache.tar.xz .
+      if gsutil -q stat gs://gpi_images/geraldpi-cache.tar.zst; then
+        gsutil cp gs://gpi_images/geraldpi-cache.tar.zst .
       else
         echo "No cache found, proceeding without cache"
       fi
@@ -31,7 +31,7 @@ steps:
     id: 'copy-artifacts-to-gcs'
     args:
       - 'cp' 
-      - 'geraldpi-artifacts.tar.xz' 
+      - 'geraldpi-artifacts.tar.zst' 
       - 'gs://gpi_images/'
 
   # Cache Build Artifacts to speed up future builds
@@ -39,7 +39,7 @@ steps:
     id: 'copy-cache-to-gcs'
     args:
       - 'cp' 
-      - 'geraldpi-cache.tar.xz' 
+      - 'geraldpi-cache.tar.zst' 
       - 'gs://gpi_images/'
 
 options:

@@ -10,9 +10,14 @@ rm build/conf/local.conf
 . poky/oe-init-build-env
 
 echo "Extracting Cache"
-ls -l
-tar xf ../geraldpi-cache.tar.zst 
-ls -l
+
+if [ -d downloads ]
+then
+	echo "Cache already present"
+else
+	echo "Extracting..."
+	tar xf ../geraldpi-cache.tar.zst 
+fi
 
 # Add the meta layers
 bitbake-layers add-layer ../meta-raspberrypi

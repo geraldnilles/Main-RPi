@@ -16,10 +16,19 @@ cp -r build/tmp/log build/tmp/deploy/images/log
 # TODO Copy ALL log failures, not just the latest
 find build/tmp/log -name console-latest.log | xargs -n 1 cat | grep "Logfile of failure" | awk 'BEGIN { FS=":"} { print $3}' | xargs -I{} -n 1 cp {} build/tmp/deploy/images/log/
 
+df -h
+
 tar --zstd -cf geraldpi-artifacts.tar.zst build/tmp/deploy/images 
+
+# Now that the deploy folder has been archieved, delete the entire tmp folder to save space
+#rm -rf build/tmp
+
+df -h
 
 rm geraldpi-cache.tar*
 # Zip all of the build cache for later use
 cd build
 tar --zst -cf ../geraldpi-cache.tar.zst sstate-cache downloads
+
+df -h
 

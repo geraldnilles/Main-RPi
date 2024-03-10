@@ -46,5 +46,6 @@ options:
   # Specify a machine type depending on your build's resource requirements
   # This is optional; if not specified, Cloud Build uses a default machine type
   machineType: 'E2_HIGHCPU_32'
+  diskSizeGb: '200'
 
 timeout: 15000s

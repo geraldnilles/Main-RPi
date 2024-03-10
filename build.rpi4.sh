@@ -9,6 +9,6 @@ cd "$(dirname "$0")"
 . poky/oe-init-build-env
 
 bitbake geraldpi-documents
-bitbake geraldpi-webapps
-bitbake geraldpi-scam
+#bitbake geraldpi-webapps
+#bitbake geraldpi-scam
 

@@ -10,7 +10,7 @@ then
 
 fi
 
-#WIFI_SSID="$1" WIFI_PASS="$2" ./build.rpi4.sh
+WIFI_SSID="$1" WIFI_PASS="$2" ./build.rpi4.sh
 WIFI_SSID="$1" WIFI_PASS="$2" ./build.rpi3.sh
 WIFI_SSID="$1" WIFI_PASS="$2" ./build.rpi0.sh
 

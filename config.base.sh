@@ -37,7 +37,13 @@ echo "WIFI_PASSWORD = \"$WIFI_PASS\"" >> local.conf
 
 # Set core count based on number of CPU cores
 CPU_COUNT=$( grep -c ^processor /proc/cpuinfo )
-echo "BB_NUMBER_THREADS = \"$(( $CPU_COUNT/2 ))\"" >> local.conf 
-echo "PARALLEL_MAKE = \"-j $(( $CPU_COUNT/2 ))\"" >> local.conf 
+HALF_CPU_COUNT=$((CPU_COUNT / 2))
 
+# Ensure a minimum of 2
+if [ $HALF_CPU_COUNT -lt 2 ]; then
+  HALF_CPU_COUNT=2
+fi
+
+echo "BB_NUMBER_THREADS = \"$HALF_CPU_COUNT\"" >> local.conf 
+echo "PARALLEL_MAKE = \"-j $HALF_CPU_COUNT\"" >> local.conf 
 

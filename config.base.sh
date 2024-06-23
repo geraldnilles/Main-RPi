@@ -44,6 +44,6 @@ if [ $HALF_CPU_COUNT -lt 2 ]; then
   HALF_CPU_COUNT=2
 fi
 
-echo "BB_NUMBER_THREADS = \"$HALF_CPU_COUNT\"" >> local.conf 
+echo "BB_NUMBER_THREADS = \"2\"" >> local.conf 
 echo "PARALLEL_MAKE = \"-j $HALF_CPU_COUNT\"" >> local.conf 
 

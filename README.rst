@@ -33,6 +33,8 @@ Once you are connected, cd into the Repo folder and run the `./setup.sh` script
 to install all of the requried packages.
 
 
+bump
+
 Build 
 =====
 

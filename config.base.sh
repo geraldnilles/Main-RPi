@@ -2,6 +2,9 @@
 
 cd "$(dirname "$0")"
 
+git checkout .
+git pull
+
 git submodule update --init --recursive
 
 # Delete the conf and genrate a new default one
@@ -44,6 +47,6 @@ if [ $HALF_CPU_COUNT -lt 2 ]; then
   HALF_CPU_COUNT=2
 fi
 
-echo "BB_NUMBER_THREADS = \"2\"" >> local.conf 
-echo "PARALLEL_MAKE = \"-j $HALF_CPU_COUNT\"" >> local.conf 
+#echo "BB_NUMBER_THREADS = \"2\"" >> local.conf 
+#echo "PARALLEL_MAKE = \"-j $HALF_CPU_COUNT\"" >> local.conf 
 

@@ -19,16 +19,15 @@ find build/tmp/log -name console-latest.log | xargs -n 1 cat | grep "Logfile of 
 df -h
 
 tar --zstd -cf geraldpi-artifacts.tar.zst build/tmp/deploy/images 
+gsutil cp geraldpi-artifacts.tar.zst gs://gpi_images/
 
-# Now that the deploy folder has been archieved, delete the entire tmp folder to save space
-#rm -rf build/tmp
-
-df -h
 
 rm geraldpi-cache.tar*
-# Zip all of the build cache for later use
+# Zip all of the build cache for faster incremental builds
 cd build
 tar --zst -cf ../geraldpi-cache.tar.zst sstate-cache downloads
 
-df -h
+
+cd ..
+gsutil cp geraldpi-cache.tar.zst gs://gpi_images/
 

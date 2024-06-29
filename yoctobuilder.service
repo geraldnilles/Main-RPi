@@ -1,0 +1,15 @@
+[Unit]
+Description=Run runall.sh script 2 minutes after boot
+After=network.target
+
+[Service]
+Type=oneshot
+User=geraldnilles
+WorkingDirectory=/home/geraldnilles/Main-RPi
+ExecStartPre=/bin/sleep 60
+ExecStart=/home/geraldnilles/Main-RPi/runall.sh MyWifiSSID MyPassword
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+

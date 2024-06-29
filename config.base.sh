@@ -48,5 +48,6 @@ if [ $HALF_CPU_COUNT -lt 2 ]; then
 fi
 
 #echo "BB_NUMBER_THREADS = \"2\"" >> local.conf 
-#echo "PARALLEL_MAKE = \"-j $HALF_CPU_COUNT\"" >> local.conf 
+# 4 threads per make job
+#echo "PARALLEL_MAKE = \"-j 4\"" >> local.conf 
 

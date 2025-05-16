@@ -15,6 +15,3 @@ fi
 
 ./build.sh "$1" "$2"
 
-./save.sh
-
-sudo shutdown -h 0

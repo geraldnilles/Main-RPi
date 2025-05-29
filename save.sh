@@ -19,6 +19,9 @@ find build/tmp/log -name console-latest.log | xargs -n 1 cat | grep "Logfile of 
 df -h
 
 tar --zstd -cf geraldpi-artifacts.tar.zst build/tmp/deploy/images 
+
+exit 
+
 gsutil cp geraldpi-artifacts.tar.zst gs://gpi_images/
 
 

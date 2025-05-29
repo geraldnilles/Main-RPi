@@ -9,4 +9,5 @@ cd "$(dirname "$0")"
 . poky/oe-init-build-env
 bitbake geraldpi-cec
 #bitbake geraldpi-speaker
+bitbake geraldpi-thermostat
 

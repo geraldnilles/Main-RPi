@@ -1,5 +1,5 @@
 # Use the standard Ubuntu image as a base
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # Switch to root user (default in Dockerfile/Containerfile build)
 USER root

@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")"
 
-git checkout .
+#git checkout .
 git pull
 
 git submodule update --init --recursive

@@ -1,5 +1,5 @@
 # Use the standard Ubuntu image as a base
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 # Switch to root user (default in Dockerfile/Containerfile build)
 USER root
@@ -11,6 +11,7 @@ RUN apt update && \
     wget \
     chrpath \
     diffstat \
+    liblz4-tool \
     wpasupplicant \
     python3 \
     locales \

@@ -11,7 +11,6 @@ RUN apt update && \
     wget \
     chrpath \
     diffstat \
-    liblz4-tool \
     wpasupplicant \
     python3 \
     locales \
